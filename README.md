@@ -4,7 +4,7 @@ A class to make using MySQL Databases easier in PHP. This class has built in SQL
 ## Use:
 ```php
 // Create a new Database Object
-$db = new Database('mysql.domain.com', 'username', 'password, 'databaseName');
+$db = new Database('mysql.domain.com', 'username', 'password', 'databaseName');
 
 // Query the Database
 $results = $db->query("SELECT Email FROM tUser WHERE UserID = ?", [42]); // returns an array of arrays
