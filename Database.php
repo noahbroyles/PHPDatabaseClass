@@ -46,4 +46,8 @@ class Database {
         mysqli_free_result($res);
         return $data;
     }
+    
+    public function close() {
+        $this->mysqliConnection->close();
+    }
 }
