@@ -9,7 +9,7 @@ class Database {
         $this->mysqliConnection = mysqli_connect($host, $user, $password, $dbname);
         $this->mysqliConnection->autocommit(true);
         if ($this->mysqliConnection->connect_error) {
-            throw new Exception("Database Connection Failed", 69);
+            throw new Exception("Database Connection Failed");
         }
     }
 
