@@ -11,9 +11,11 @@ $results = $db->query("SELECT Email FROM tUser WHERE UserID = ?", [42]); // retu
 $email = $results[0]['Email']; // Get the Email in the first row - There would only be one row with one email anyway
 
 // Insert into the Database
-$db->query("INSERT INTO tUser (Username, Email, Password) VALUES (?, ?, ?);", ['username', 'email@hoster.com', 'some hashed password']);
+$db->execute("INSERT INTO tUser (Username, Email, Password) VALUES (?, ?, ?);", ['username', 'email@hoster.com', 'some hashed password']);
 // No need to commit, this is done automatically
 
 // Finally, close your Database
 $db->close();
 ```
+The `query` function is used when you need data that would be returned from a query, such as `SELECT`, `SHOW`, `DESCRIBE`, or `EXPLAIN` statements.  
+The `execute` function is used when you do _not_ need any data to be returned from the SQL statement, like `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `DROP`, _etc._
