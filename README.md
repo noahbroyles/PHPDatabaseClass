@@ -17,5 +17,7 @@ $db->execute("INSERT INTO tUser (Username, Email, Password) VALUES (?, ?, ?);", 
 // Finally, close your Database
 $db->close();
 ```
+### `$db->query()`:
 The `query` function is used when you need data that would be returned from a query, such as `SELECT`, `SHOW`, `DESCRIBE`, or `EXPLAIN` statements.  
+### `$db->execute()`:
 The `execute` function is used when you do _not_ need any data to be returned from the SQL statement, like `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `DROP`, _etc._
