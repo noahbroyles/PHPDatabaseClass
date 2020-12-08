@@ -1,21 +1,5 @@
 <?php
 
-class DBResult {
-
-    private $queryResults;
-
-    function __construct($data) {
-        $this->queryResults = $data;
-    }
-
-    function fetchAll() {
-        return $this->queryResults;
-    }
-
-    function fetchOne() {
-        return $this->queryResults[0];
-    }
-}
 
 class Database {
 
@@ -69,7 +53,7 @@ class Database {
             $res = $this->mysqliConnection->query($sql);
         } else {
             $stmt = $this->mysqliConnection->prepare($sql);
-            $types = getTypeString($parameters);
+            $types = $this->getTypeString($parameters);
             $stmt->bind_param($types, ...$parameters);
             $stmt->execute();
             $res = $stmt->get_result();
@@ -96,7 +80,7 @@ class Database {
             $this->mysqliConnection->query($sql);
         } else {
             $stmt = $this->mysqliConnection->prepare($sql);
-            $types = getTypeString($parameters);
+            $types = $this->getTypeString($parameters);
             $stmt->bind_param($types, ...$parameters);
             $stmt->execute();
         }
