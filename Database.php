@@ -22,19 +22,19 @@ class Database {
     }
 
 
-    private function getTypeString($params) {
+    private function getTypeString($params): string {
         $typeString = "";
         foreach ($params as $p) {
             $type = gettype($p);
             switch ($type) {
                 case "string":
-                    $types .= "s";
+                    $typeString .= "s";
                     break;
                 case "integer":
-                    $types .= "i";
+                    $typeString .= "i";
                     break;
                 case "double":
-                    $types .= "d";
+                    $typeString .= "d";
                     break;
             }
         }
